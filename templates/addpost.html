@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Add posts{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    {% block content %}
+    <br>
+    <h1>Add Posts</h1>
+    <div class="form-group">
+    <form method="post">
+        {% csrf_token %}
+        <!-- takes all fields from post -->
+        <!-- here p refers to paragraph we can also use as_ul or as_table -->
+        {{ form.as_p }}
+        <button class="btn btn-primary">Post</button>
+    </form>
+    </div>    
+    {% endblock %}
+</body>
+</html>
