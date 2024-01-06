@@ -22,5 +22,5 @@ Reusability: If you decide to change how your URLs are structured or generated, 
 """
     def get_absolute_url(self):
         # we can also use 'home' to redirect to homepage
-        return reverse('article', args=str(self.id))
+        return reverse('article', args=[str(self.id)])
         # return reverse('home')

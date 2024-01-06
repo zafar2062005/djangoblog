@@ -10,9 +10,11 @@
     <h1>Posts</h1>
     <ul><!--  we can also use x.author.first_name or last_name or email-->
             {% for x in posts %}
-            <li><a href="{% url 'article' x.pk %}">{{x.title}}</a> -- {{x.author}} -- 
-                <a href="{% url 'update_post' x.pk %}">Edit</a>-- <a href="{% url 'delete_post' x.pk %}">Delete</a> -- {{x.post_date}}<br>
-                {{x.body}} </li>
+            <li><a href="{% url 'article' x.pk %}">{{x.title}}</a> -- {{x.author}} -- {{x.post_date}} <br> 
+               {% if user.is_authenticated and user == x.author%}
+                <small> <a href="{% url 'update_post' x.pk %}">Edit</a>-- <a href="{% url 'delete_post' x.pk %}">Delete</a> </small><br>
+                {% endif %}
+                {{ x.body|truncatewords:20 }} </li>    
             {% endfor %}
     </ul>
     {% endblock %}

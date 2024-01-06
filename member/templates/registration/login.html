@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    {% block content %}
+    <br>
+    <h1>Login</h1>
+    <div class="form-group">
+    <form method="post">
+        {% csrf_token %}
+        <!-- takes all fields from post -->
+        <!-- here p refers to paragraph we can also use as_ul or as_table -->
+        {{ form.as_p }}
+        <button class="btn btn-primary">Login</button>
+    </form>
+    </div>    
+    {% endblock %}
+</body>
+</html>

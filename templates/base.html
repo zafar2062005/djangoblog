@@ -28,7 +28,22 @@
                     <li class="nav-item">
                         <a class="nav-link text-light" href="{% url 'add_post' %}">Add Post</a>
                     </li>
-                   
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{% url 'signup' %}">Sign up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{% url 'login' %}">Login</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <!-- i was having error is GET so i have to use POST by creating a form -->
+                            <form method="post" action="{% url 'logout' %}">
+                                {% csrf_token %}
+                                <input class="nav-link text-light" type="submit" value="Logout">
+                            </form>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
