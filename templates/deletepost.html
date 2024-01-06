@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Delete Post{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    {% block content %}
+    <br>
+    <h1>Delete Post </h1>
+    <div class="form-group">
+    <form method="post">
+        {% csrf_token %}
+        <h3>{{post.title}}</h3>
+        <br>
+        <h5>Are you sure?</h5>
+        <br>
+        <button class="btn btn-primary">Delete</button>
+    </form>
+    </div>    
+    {% endblock %}
+</body>
+</html>

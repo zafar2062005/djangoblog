@@ -10,7 +10,11 @@
 <body>
     {% block content %}
     <h1>{{post.title}}</h1>
-    <small>By : {{post.author}} -- {{post.author.email}}</small><br>
+    <!-- The pk (primary key) is commonly used to uniquely identify database records, especially in Django models.
+     It is a unique identifier assigned to each record in a database table. In the context of a blog or similar
+      application, the post.id is likely the unique identifier for a specific blog post. -->
+    <small>By : {{post.author}} -- {{post.author.email}} -- <a href="{% url 'update_post' pk=post.id %}">Edit</a>-- {{post.post_date}}</small><br>
+    <a href="{% url 'delete_post' pk=post.id %}">Delete</a>
     <hr>
     <br>
     {{post.body}}

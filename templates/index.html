@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
 </head>
 <body>
     {% block content %}
     <h1>Posts</h1>
     <ul><!--  we can also use x.author.first_name or last_name or email-->
             {% for x in posts %}
-            <li><a href="{% url 'article' x.pk %}">{{x.title}}</a> -- {{x.author}} <br>
+            <li><a href="{% url 'article' x.pk %}">{{x.title}}</a> -- {{x.author}} -- 
+                <a href="{% url 'update_post' x.pk %}">Edit</a>-- <a href="{% url 'delete_post' x.pk %}">Delete</a> -- {{x.post_date}}<br>
                 {{x.body}} </li>
             {% endfor %}
     </ul>
